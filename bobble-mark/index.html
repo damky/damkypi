@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bobble Mark</title>
+  <script src="anime.js"></script>
+  <style type="text/css">
+    
+    body {
+      background: url(img/bkg.jpg);
+      background-size: cover;
+      padding: 80px;
+    }
+
+    img {
+      max-width: 300px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-140px);
+    }
+
+    .head {
+      top: 80px;
+    }
+
+    .body {
+      top: 480px;
+      z-index: -1;
+    }
+
+    h1 {
+      font-family: Open Sans, Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      max-width: 300px;
+      margin: auto;
+      position: absolute;
+      top: 620px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+  
+  </style>
+</head>
+<body>
+  <img src="img/head.png" class="head">
+  <img src="img/body.png" class="body">
+  <h1>Click to bobble</h1>
+</body>
+<script type="text/javascript">
+
+  var markHead = document.querySelectorAll('.head');
+
+  var markHeadMouseOverEvent = document.createEvent('MouseEvent');
+  markHeadMouseOverEvent.initMouseEvent('mouseover');
+
+  markHead[0].dispatchEvent(markHeadMouseOverEvent);
+
+  markHead[0].addEventListener('click', moveHead);
+  markHead[0].addEventListener('mouseover', moveHead);
+  
+  function moveHead() {
+    console.log('clicked');
+    // markHead[0].style.transform = 'translateX(' + anime.random(-100, 100); + '%)';
+      anime({
+        targets: '.head',
+        keyframes: [
+          // {translateY: -40},
+          // {translateX: 250},
+          // {translateY: 40},
+          // {translateX: 0},
+          // {translateY: 0}
+          {translateX: function() {
+            return anime.random(-170, -155);
+          },
+          translateY: function() {
+            return anime.random(-20, 20);
+          }},
+          {translateX: function() {
+            return anime.random(-160, -145);
+          },
+          translateY: function() {
+            return anime.random(-10, 10);
+          }}
+        ],
+        duration: 1000,
+        easing: 'spring(1, 80, 10, 0)'
+      });
+  };
+
+
+
+</script>
+</html>
