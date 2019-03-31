@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Bobble Mark</title>
-  <script src="anime.js"></script>
+  <script src="anime.min.js"></script>
   <style type="text/css">
     
     body {
@@ -71,21 +71,48 @@
           // {translateY: 40},
           // {translateX: 0},
           // {translateY: 0}
-          {translateX: function() {
-            return anime.random(-170, -155);
+          {
+            translateX: function() {
+              return anime.random(-170, -110);
+            },
+            translateY: function() {
+              return anime.random(-20, 20);
+            },
+            rotate: function() {
+              return anime.random(-6, 6);
+            }
           },
-          translateY: function() {
-            return anime.random(-20, 20);
-          }},
-          {translateX: function() {
-            return anime.random(-160, -145);
+          {
+            translateX: function() {
+              return anime.random(-165, -120);
+            },
+            translateY: function() {
+              return anime.random(-15, 15);
+            },
+            rotate: function() {
+              return anime.random(-4, 4);
+            }
           },
-          translateY: function() {
-            return anime.random(-10, 10);
-          }}
+          {
+            translateX: function() {
+              return anime.random(-150, -130);
+            },
+            translateY: function() {
+              return anime.random(-10, 10);
+            },
+            rotate: function() {
+              return anime.random(-1, 1);
+            }
+          },
+          {
+            translateX: -140,
+            translateY: 0,
+            rotate: 0,
+          }
         ],
-        duration: 1000,
-        easing: 'spring(1, 80, 10, 0)'
+        // duration: 3000,
+        delay: 0,
+        easing: 'easeInOutElastic(5, 2)'
       });
   };
 
